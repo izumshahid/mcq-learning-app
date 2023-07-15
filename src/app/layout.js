@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Sidebar from "../sections/Sidebar";
 import Header from "@/sections/Header";
+import { ThemeContextProvider } from "@/context/Store";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,15 +14,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-[#F9F9F9]">
-        <div className="flex flex-row">
-          <Sidebar />
-          <div className="bg-[#F9F9F9] w-full p-8">
-            <Header />
-            <div>{children}</div>
+      <ThemeContextProvider>
+        <body className="bg-[#F9F9F9]">
+          <div className="flex flex-row">
+            <Sidebar />
+            <div className="bg-[#F9F9F9] w-full p-8">
+              <Header />
+              <div>{children}</div>
+            </div>
           </div>
-        </div>
-      </body>
+        </body>
+      </ThemeContextProvider>
     </html>
   );
 }
