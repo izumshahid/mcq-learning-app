@@ -5,13 +5,13 @@ import { createContext, useContext, useState } from "react";
 const ThemeContext = createContext({});
 
 export const ThemeContextProvider = ({ children }) => {
-  const [activeNav, setActiveNav] = useState("none");
+  const [sidebarExpanded, setSidebarExpanded] = useState(false);
 
   return (
     <ThemeContext.Provider
       value={{
-        activeNav,
-        setActiveNav,
+        sidebarExpanded,
+        setSidebarExpanded,
       }}
     >
       {children}

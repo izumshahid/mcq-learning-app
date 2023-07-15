@@ -84,7 +84,7 @@ const Collapsable = ({ subject = "", parent_link = "", children_Arr = [] }) => {
     >
       <div className="bg-main_green_color text-white rounded-bl-lg rounded-br-lg p-2">
         {child_arr.map((child) => (
-          <Link key={child.link} href={child.link}>
+          <Link key={child.link} id={child.link} href={child.link}>
             <div className="flex mb-1">
               <Image src={UP_ARROW_IMAGE} alt="subject" className="rotate-90" />
               <p className="text-sm sm:text-sm md:text-sm lg:text-base 2xl:text-base ">
