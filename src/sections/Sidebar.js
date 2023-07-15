@@ -58,7 +58,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
   useEffect(() => {
     NAV_ARRAY.find((nav) => {
-      if (nav.link == pathname) {
+      if (pathname.includes(nav.link)) {
         setActiveNav(nav);
       }
     });

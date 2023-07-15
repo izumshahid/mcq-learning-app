@@ -15,6 +15,24 @@ export const NAV_ARRAY = [
     link: "/GeneralAptitude",
     title: "General Aptitude",
     img: APTITUDE_IMAGE,
+    children: [
+      {
+        link: "/child1",
+        title: "Child 1",
+      },
+      {
+        link: "/child2",
+        title: "Child 2",
+      },
+      {
+        link: "/child3",
+        title: "Child 3",
+      },
+      {
+        link: "/child4",
+        title: "Child 4",
+      },
+    ],
   },
   {
     link: "/VerbalAndReasoning",
