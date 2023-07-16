@@ -61,9 +61,7 @@ const Header = () => {
         <div className="w-2 h-2 object-contain">
           <Image src={RIGHT_ARROW_IMAGE} className="w-full" alt="right_Arrow" />
         </div>
-        <Link href={activeNav?.link || ""}>
-          <p>{activeNav?.title}</p>
-        </Link>
+        <p>{activeNav?.title}</p>
         {activeNavChild ? (
           <>
             <div className="w-2 h-2 object-contain">
