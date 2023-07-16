@@ -4,6 +4,7 @@ import CURRNET_AFFAIR_IMAGE from "../assets/affairsGKGreen.png";
 import APTITUDE_IMAGE from "../assets/gerApititeGreen.png";
 import INTERVIEW_IMAGE from "../assets/interviewGreen.png";
 import VERBAL_IMAGE from "../assets/verbalAndReasonGreen.png";
+import NAV_CHILD_BEND_ARROW from "../assets/curvedArrowGreen.png";
 
 export const NAV_ARRAY = [
   {
@@ -19,18 +20,22 @@ export const NAV_ARRAY = [
       {
         link: "/ArithmeticAptitude",
         title: "Arithmetic Aptitude",
+        img: NAV_CHILD_BEND_ARROW,
       },
       {
         link: "/child2",
         title: "Child 2",
+        img: NAV_CHILD_BEND_ARROW,
       },
       {
         link: "/child3",
         title: "Child 3",
+        img: NAV_CHILD_BEND_ARROW,
       },
       {
         link: "/child4",
         title: "Child 4",
+        img: NAV_CHILD_BEND_ARROW,
       },
     ],
   },

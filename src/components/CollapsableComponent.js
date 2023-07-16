@@ -10,7 +10,11 @@ import UP_ARROW_IMAGE from "../assets/upArrowWhite.png";
 import Collapsible from "react-collapsible";
 import Link from "next/link";
 
-const Collapsable = ({ subject = "", parent_link = "", children_Arr = [] }) => {
+const CollapsableComponent = ({
+  subject = "",
+  parent_link = "",
+  children_Arr = [],
+}) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const child_arr = [
@@ -98,4 +102,4 @@ const Collapsable = ({ subject = "", parent_link = "", children_Arr = [] }) => {
   );
 };
 
-export default Collapsable;
+export default CollapsableComponent;

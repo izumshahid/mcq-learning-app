@@ -10,10 +10,15 @@ import Link from "next/link";
 import { myContext } from "@/context/Store";
 
 const Header = () => {
-  const [activeNav, setActiveNav] = useState(null);
-  const [activeNavChild, setActiveNavChild] = useState(null);
   const pathname = usePathname();
-  const { sidebarExpanded, setSidebarExpanded } = myContext();
+  const {
+    sidebarExpanded,
+    setSidebarExpanded,
+    activeNav,
+    setActiveNav,
+    activeNavChild,
+    setActiveNavChild,
+  } = myContext();
 
   useEffect(() => {
     NAV_ARRAY.find((nav) => {
@@ -56,7 +61,7 @@ const Header = () => {
         <div className="w-2 h-2 object-contain">
           <Image src={RIGHT_ARROW_IMAGE} className="w-full" alt="right_Arrow" />
         </div>
-        <Link href={activeNav?.link}>
+        <Link href={activeNav?.link || ""}>
           <p>{activeNav?.title}</p>
         </Link>
         {activeNavChild ? (
@@ -68,9 +73,7 @@ const Header = () => {
                 alt="right_Arrow"
               />
             </div>
-            <Link href={activeNavChild?.link}>
-              <p>{activeNavChild?.title}</p>
-            </Link>
+            <p>{activeNavChild?.title}</p>
           </>
         ) : null}
       </div>

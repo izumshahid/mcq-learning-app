@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import SideBarSingleLink from "../components/SideBarSingleLink";
+import SideBarLink from "../components/SideBarLink";
 import Link from "next/link";
 import { NAV_ARRAY } from "@/utils/contants";
 import { myContext } from "@/context/Store";
@@ -47,11 +47,12 @@ function Sidebar() {
 
         <div className="overflow-y-scroll lg:overflow-y-auto no-scrollbar">
           {NAV_ARRAY.map((nav) => (
-            <SideBarSingleLink
+            <SideBarLink
               key={nav.link}
               link={nav.link}
               title={nav.title}
               image={nav.img}
+              children={nav.children || []}
               active={nav.link == activeNav?.link}
             />
           ))}
