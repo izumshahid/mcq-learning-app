@@ -17,8 +17,8 @@ export const NAV_ARRAY = [
     img: APTITUDE_IMAGE,
     children: [
       {
-        link: "/child1",
-        title: "Child 1",
+        link: "/ArithmeticAptitude",
+        title: "Arithmetic Aptitude",
       },
       {
         link: "/child2",

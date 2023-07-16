@@ -4,12 +4,14 @@ import { NAV_ARRAY } from "@/utils/contants";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import BACK_ARROW_IMAGE from "../assets/backArrow.png";
+import RIGHT_ARROW_IMAGE from "../assets/greenArrowRight.png";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { myContext } from "@/context/Store";
 
 const Header = () => {
   const [activeNav, setActiveNav] = useState(null);
+  const [activeNavChild, setActiveNavChild] = useState(null);
   const pathname = usePathname();
   const { sidebarExpanded, setSidebarExpanded } = myContext();
 
@@ -17,6 +19,16 @@ const Header = () => {
     NAV_ARRAY.find((nav) => {
       if (pathname.includes(nav.link)) {
         setActiveNav(nav);
+
+        if (nav.children) {
+          nav.children.find((child) => {
+            if (pathname.includes(child.link)) {
+              setActiveNavChild(child);
+            }
+          });
+        } else {
+          setActiveNavChild(null);
+        }
       }
     });
   });
@@ -25,8 +37,44 @@ const Header = () => {
     setSidebarExpanded(true);
   };
 
+  console.log(
+    "==>>> header activeNav :",
+    activeNav,
+    " ActiveNavChild: ",
+    activeNavChild
+  );
+
   return (
-    <div className="h-28 flex items-center lg:ml-64 lg:max-w-[80%] overflow-x-hidden">
+    <div
+      className={`${
+        activeNav?.link == "/" ? "flex items-center" : ""
+      } h-28 lg:ml-64 lg:max-w-[80%] overflow-x-hidden`}
+    >
+      <div
+        className={`${
+          activeNav?.link == "/"
+            ? "hidden"
+            : "breadCrumbs flex mb-5 items-center gap-3"
+        }`}
+      >
+        <p>Home</p>
+        <div className="w-2 h-2 object-contain">
+          <Image src={RIGHT_ARROW_IMAGE} className="w-full" alt="right_Arrow" />
+        </div>
+        <p>{activeNav?.title}</p>
+        {activeNavChild ? (
+          <>
+            <div className="w-2 h-2 object-contain">
+              <Image
+                src={RIGHT_ARROW_IMAGE}
+                className="w-full"
+                alt="right_Arrow"
+              />
+            </div>
+            <p>{activeNavChild?.title}</p>
+          </>
+        ) : null}
+      </div>
       <img
         onClick={openNav}
         className="cursor-pointer mr-5 block lg:hidden xl:hidden 2xl:hidden "
