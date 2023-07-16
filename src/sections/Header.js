@@ -54,7 +54,7 @@ const Header = () => {
         className={`${
           activeNav?.link == "/"
             ? "hidden"
-            : "breadCrumbs flex mb-5 items-center gap-3"
+            : "breadCrumbs mb-5 gap-3 hidden md:flex items-center font-semibold"
         }`}
       >
         <p>Home</p>
@@ -75,23 +75,25 @@ const Header = () => {
           </>
         ) : null}
       </div>
-      <img
-        onClick={openNav}
-        className="cursor-pointer mr-5 block lg:hidden xl:hidden 2xl:hidden "
-        width="30"
-        height="30"
-        src="https://img.icons8.com/ios-glyphs/30/menu--v1.png"
-        alt="menu--v1"
-      />
-      <div className="flex gap-1">
-        {activeNav?.link == "/" ? null : (
-          <div className="bg-main_green_color hidden lg:flex items-center rounded-md px-2 mr-2 cursor-pointer">
-            <Link href="/">
-              <Image src={BACK_ARROW_IMAGE} alt="" />
-            </Link>
-          </div>
-        )}
-        <h3 className="text-3xl font-bold">{activeNav?.title}</h3>
+      <div className="flex ">
+        <img
+          onClick={openNav}
+          className="cursor-pointer mr-5 block lg:hidden xl:hidden 2xl:hidden "
+          width="30"
+          height="30"
+          src="https://img.icons8.com/ios-glyphs/30/menu--v1.png"
+          alt="menu--v1"
+        />
+        <div className="flex gap-1">
+          {activeNav?.link == "/" ? null : (
+            <div className="bg-main_green_color hidden lg:flex items-center rounded-md px-2 mr-2 cursor-pointer">
+              <Link href="/">
+                <Image src={BACK_ARROW_IMAGE} alt="" />
+              </Link>
+            </div>
+          )}
+          <h3 className="text-3xl font-bold">{activeNav?.title}</h3>
+        </div>
       </div>
     </div>
   );
