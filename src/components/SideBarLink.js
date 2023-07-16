@@ -20,74 +20,76 @@ const SideBarLink = ({ link, image, title, children, active = false }) => {
               active ? "bg-main_green_color" : "bg-main_black_color"
             } w-1 h-8 rounded-tr-xl rounded-br-xl mr-5`}
           ></div>
-          <Collapsible
-            className="w-full"
-            trigger={
-              <div
-                className="flex items-center justify-between irzum w-full"
-                onClick={() => setIsCollapsed(!isCollapsed)}
-              >
-                <div className="flex items-center gap-2">
-                  <Image
-                    src={image}
-                    className={`${active ? "" : "grayscale"}`}
-                    alt={title}
-                    width={20}
-                  />
-                  <p
-                    className={`${
-                      active
-                        ? "text-main_green_color"
-                        : "text-white text-opacity-60"
-                    }  text-md m-0`}
-                  >
-                    {title}
-                  </p>
-                </div>
-                <div>
-                  <Image
-                    src={WHITE_ARROW_UP}
-                    alt="arrow"
-                    className={
-                      isCollapsed
-                        ? "transform rotate-0 duration-500"
-                        : "transform rotate-180 duration-500"
-                    }
-                    width={20}
-                    height={20}
-                  />
-                </div>
-              </div>
-            }
-          >
-            <div className="pt-4 pl-1">
-              {children.map((child, idx) => (
-                <Link key={idx} href={`${link}${child.link}`}>
-                  <div className="flex items-center pl-2 mb-2 gap-2">
+          <div className="w-full">
+            <Collapsible
+              className="w-full"
+              trigger={
+                <div
+                  className="flex items-center justify-between w-full"
+                  onClick={() => setIsCollapsed(!isCollapsed)}
+                >
+                  <div className="flex items-center gap-2">
                     <Image
-                      src={child.img}
-                      className={`${
-                        active && activeNavChild?.link == child.link
-                          ? ""
-                          : "grayscale"
-                      }`}
-                      alt={child.title}
+                      src={image}
+                      className={`${active ? "" : "grayscale"}`}
+                      alt={title}
                       width={20}
                     />
                     <p
                       className={`${
-                        active && activeNavChild?.link == child.link
+                        active
                           ? "text-main_green_color"
                           : "text-white text-opacity-60"
                       }  text-md m-0`}
                     >
-                      {child.title}
+                      {title}
                     </p>
                   </div>
-                </Link>
-              ))}
-            </div>
-          </Collapsible>
+                  <div>
+                    <Image
+                      src={WHITE_ARROW_UP}
+                      alt="arrow"
+                      className={
+                        isCollapsed
+                          ? "transform rotate-0 duration-500"
+                          : "transform rotate-180 duration-500"
+                      }
+                      width={20}
+                      height={20}
+                    />
+                  </div>
+                </div>
+              }
+            >
+              <div className="pt-4 pl-1">
+                {children.map((child, idx) => (
+                  <Link key={idx} href={`${link}${child.link}`}>
+                    <div className="flex items-center pl-2 mb-2 gap-2">
+                      <Image
+                        src={child.img}
+                        className={`${
+                          active && activeNavChild?.link == child.link
+                            ? ""
+                            : "grayscale"
+                        }`}
+                        alt={child.title}
+                        width={20}
+                      />
+                      <p
+                        className={`${
+                          active && activeNavChild?.link == child.link
+                            ? "text-main_green_color"
+                            : "text-white text-opacity-60"
+                        }  text-md m-0`}
+                      >
+                        {child.title}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </Collapsible>
+          </div>
         </div>
       ) : (
         <Link href={link}>

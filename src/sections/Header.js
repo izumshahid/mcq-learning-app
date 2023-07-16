@@ -5,14 +5,13 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import BACK_ARROW_IMAGE from "../assets/backArrow.png";
 import RIGHT_ARROW_IMAGE from "../assets/greenArrowRight.png";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { myContext } from "@/context/Store";
 
 const Header = () => {
   const pathname = usePathname();
   const {
-    sidebarExpanded,
     setSidebarExpanded,
     activeNav,
     setActiveNav,
@@ -55,9 +54,7 @@ const Header = () => {
             : "breadCrumbs mb-5 gap-3 hidden md:flex items-center font-semibold"
         }`}
       >
-        <Link href="/">
-          <p>Home</p>
-        </Link>
+        <p>Home</p>
         <div className="w-2 h-2 object-contain">
           <Image src={RIGHT_ARROW_IMAGE} className="w-full" alt="right_Arrow" />
         </div>
