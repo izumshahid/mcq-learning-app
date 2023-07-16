@@ -37,13 +37,6 @@ const Header = () => {
     setSidebarExpanded(true);
   };
 
-  console.log(
-    "==>>> header activeNav :",
-    activeNav,
-    " ActiveNavChild: ",
-    activeNavChild
-  );
-
   return (
     <div
       className={`${
@@ -57,11 +50,15 @@ const Header = () => {
             : "breadCrumbs mb-5 gap-3 hidden md:flex items-center font-semibold"
         }`}
       >
-        <p>Home</p>
+        <Link href="/">
+          <p>Home</p>
+        </Link>
         <div className="w-2 h-2 object-contain">
           <Image src={RIGHT_ARROW_IMAGE} className="w-full" alt="right_Arrow" />
         </div>
-        <p>{activeNav?.title}</p>
+        <Link href={activeNav?.link}>
+          <p>{activeNav?.title}</p>
+        </Link>
         {activeNavChild ? (
           <>
             <div className="w-2 h-2 object-contain">
@@ -71,7 +68,9 @@ const Header = () => {
                 alt="right_Arrow"
               />
             </div>
-            <p>{activeNavChild?.title}</p>
+            <Link href={activeNavChild?.link}>
+              <p>{activeNavChild?.title}</p>
+            </Link>
           </>
         ) : null}
       </div>
