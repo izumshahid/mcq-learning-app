@@ -23,7 +23,7 @@ export const NAV_ARRAY = [
         img: NAV_CHILD_BEND_ARROW,
       },
       {
-        link: "/child2",
+        link: "/ChildTwo",
         title: "Child 2",
         img: NAV_CHILD_BEND_ARROW,
       },
