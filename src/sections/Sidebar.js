@@ -23,13 +23,13 @@ function Sidebar() {
 
   return (
     <aside
-      className={`bg-main_black_color lg:left-auto lg:top-auto lg:translate-x-0 shrink-0 -translate-x-64 w-64 lg:w-64 rounded-tr-2xl rounded-br-2xl 2xl:!w-64 fixed z-20 duration-500 ease-in-out ${
+      className={`bg-main_black_color lg:left-auto lg:top-auto lg:translate-x-0 shrink-0 -translate-x-64 w-64 lg:w-64  rounded-br-2xl 2xl:!w-64 fixed z-[60] duration-500 ease-in-out ${
         sidebarExpanded ? "translate-x-0" : "-translate-x-64"
       }`}
     >
       <div
         id="sidebar"
-        className={`flex flex-col absolute h-screen z-30 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 py-4 pr-4 rounded-tr-2xl rounded-br-2xl bg-main_black_color transition-all duration-500 ease-in-out ${
+        className={`flex flex-col absolute h-screen z-[70] left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 py-4 pr-4  rounded-br-2xl bg-main_black_color transition-all duration-500 ease-in-out ${
           sidebarExpanded ? "translate-x-0" : "-translate-x-64"
         }`}
       >

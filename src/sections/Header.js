@@ -45,7 +45,7 @@ const Header = () => {
     <div
       className={`${
         activeNav?.link == "/" ? "flex items-center" : ""
-      } h-28 lg:ml-64 lg:max-w-[80%] overflow-x-hidden`}
+      } h-13 md:h-28 lg:ml-64 lg:max-w-full overflow-x-hidden fixed top-0 left-0 w-full bg-white z-50 px-5 py-3 shadow-md`}
     >
       <div
         className={`${
@@ -89,7 +89,7 @@ const Header = () => {
               </Link>
             </div>
           )}
-          <h3 className="text-3xl font-bold">{activeNav?.title}</h3>
+          <h3 className="text-lg md:text-3xl font-bold">{activeNav?.title}</h3>
         </div>
       </div>
     </div>

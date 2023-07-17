@@ -43,7 +43,7 @@ const LayoutChild = ({ children }) => {
             ></div>
           ) : null}
 
-          <main className="lg:ml-64 lg:max-w-[80%] overflow-x-hidden">
+          <main className="lg:ml-64 lg:max-w-[80%] overflow-x-hidden pt-14 md:pt-24">
             {children}
           </main>
         </div>
